@@ -1,9 +1,11 @@
-package com.coffe.platform_api.security.user;
+package com.coffe.platform_api.security;
 
 
 import com.coffe.platform_api.service.JwtService;
 import com.coffe.platform_api.entity.User;
 import com.coffe.platform_api.repository.UserRepository;
+import com.coffe.platform_api.security.user.CustomUserDetails;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;

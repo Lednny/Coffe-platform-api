@@ -1,4 +1,4 @@
-package com.coffe.platform_api.security.user;
+package com.coffe.platform_api.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -8,6 +8,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 //Configuración de seguridad para la API de usuarios
 // Aquí puedes definir la configuración de seguridad, como autenticación, autorización, etc.
@@ -29,5 +31,10 @@ public class SecurityConfig {
             )
             .addFilterBefore(jwtAuthentication, UsernamePasswordAuthenticationFilter.class);
         return http.build();
+    }
+    
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }
