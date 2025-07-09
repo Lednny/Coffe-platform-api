@@ -1,0 +1,74 @@
+server:
+    port: 8080
+    servlet:
+        context-path: /api
+
+spring:
+    application:
+        name: Coffee-platform-api
+
+    # Database Configuration
+    datasource:
+        url: jdbc:postgresql://localhost:5434/coffee_platform
+        username: coffee_user
+        password: coffee_password
+        driver-class-name: org.postgresql.Driver
+        hikari:
+            maximum-pool-size: 10
+            minimum-idle: 5
+            connection-timeout: 20000
+
+    # JPA Configuration
+    jpa:
+        hibernate:
+            ddl-auto: update
+        show-sql: true
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+                "format_sql": true
+
+    # Redis Configuration
+    data:
+        redis:
+            host: localhost
+            port: 6379
+            timeout: 2000ms
+
+    # Development Configuration
+    devtools:
+        restart:
+            enabled: true
+
+# JWT Configuration 
+jwt:
+    secret: "coffee-platform-secret-key-lednny-2025-very-secure-authentication-string-and-very-long"
+    expiration: 86400000 # milliseconds (1 día)
+
+# Security Configuration 
+app:
+    security:
+        public-endpoints:
+            - "/auth/register"
+            - "/auth/login" 
+            - "/products/**"
+            - "/actuator/health"
+
+# Management Endpoints
+management:
+    endpoints:
+        web:
+            exposure:
+                include: health,info,metrics
+    endpoint:
+        health:
+            show-details: always
+
+# Logging
+logging:
+    level:
+        com.coffee: DEBUG
+        org.springframework.web: INFO
+        org.springframework.security: INFO
+    pattern:
+        console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"

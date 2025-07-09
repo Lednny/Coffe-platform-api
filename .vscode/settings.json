@@ -1,0 +1,16 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5434,
+            "driver": "PostgreSQL",
+            "username": "coffee_user",
+            "database": "coffee_platform",
+            "name": "Coffee Platform Docker PG17",
+            "group": "Coffe-Web-E-commerce",
+            "connectionTimeout": 30
+        }
+    ]
+}
