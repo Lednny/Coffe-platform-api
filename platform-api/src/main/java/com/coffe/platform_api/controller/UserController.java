@@ -5,9 +5,6 @@ import com.coffe.platform_api.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.UUID;
-
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -15,28 +12,15 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping
-    public List<UserDTO> getAllUsers() {
-        return userService.getAllUsers();
+    // Ver perfil propio
+    @GetMapping("/profile")
+    public UserDTO getProfile() {
+        return userService.getCurrentUser();
     }
 
-    @GetMapping("/{id}")
-    public UserDTO getUserById(@PathVariable UUID id) {
-        return userService.getUserById(id);
-    }
-
-    @PostMapping
-    public UserDTO createUser(@RequestBody CreatedUserRequest request) {
-        return userService.createUser(request);
-    }
-
-    @PutMapping("/{id}")
-    public UserDTO updateUser(@PathVariable UUID id, @RequestBody UpdateUserRequest request) {
-        return userService.updateUser(id, request);
-    }
-
-    @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable UUID id) {
-        userService.deleteUser(id);
+    // Editar perfil propio
+    @PutMapping("/profile")
+    public UserDTO updateProfile(@RequestBody UpdateUserRequest request) {
+        return userService.updateCurrentUser(request);
     }
 }
