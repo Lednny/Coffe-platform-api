@@ -12,5 +12,6 @@
             "group": "Coffe-Web-E-commerce",
             "connectionTimeout": 30
         }
-    ]
+    ],
+    "java.compile.nullAnalysis.mode": "automatic"
 }

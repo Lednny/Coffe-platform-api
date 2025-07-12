@@ -5,7 +5,8 @@ import com.coffe.platform_api.dto.user.UserDTO;
 import com.coffe.platform_api.dto.user.UserMapper;
 import com.coffe.platform_api.entity.User;
 import com.coffe.platform_api.repository.UserRepository;
-import com.coffe.platform_api.service.JwtService;
+import com.coffe.platform_api.security.JwtService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;

@@ -1,4 +1,4 @@
-package com.coffe.platform_api.service;
+package com.coffe.platform_api.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

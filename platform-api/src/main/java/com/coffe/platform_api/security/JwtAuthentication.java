@@ -1,7 +1,6 @@
 package com.coffe.platform_api.security;
 
 
-import com.coffe.platform_api.service.JwtService;
 import com.coffe.platform_api.entity.User;
 import com.coffe.platform_api.repository.UserRepository;
 import com.coffe.platform_api.security.user.CustomUserDetails;
@@ -35,9 +34,10 @@ public class JwtAuthentication extends OncePerRequestFilter  {
     private UserRepository userRepository;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request,
-                                    HttpServletResponse response,
-                                    FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(
+            @org.springframework.lang.NonNull HttpServletRequest request,
+            @org.springframework.lang.NonNull HttpServletResponse response,
+            @org.springframework.lang.NonNull FilterChain filterChain) throws ServletException, IOException {
 
         String authHeader = request.getHeader("Authorization");
         String jwt = null;
