@@ -1,5 +1,9 @@
 package com.coffe.platform_api.entity.enums;
 
-public class PaymentStatus {
-    
+public enum PaymentStatus {
+    PENDING,
+    COMPLETED,
+    FAILED,
+    REFUNDED,
+    CANCELED;
 }
